@@ -1,56 +1,84 @@
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The High Quality Rip Collection - Free Online Game</title>
-    <link rel="canonical" href="https://freegamesonline.it.com/the-high-quality-rip-collection">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>The High Quality Rip Collection</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
-        .game-iframe {
+        .game-container {
             width: 100%;
-            height: 600px; /* 固定高度 */
-            max-width: 1200px; /* 最大宽度 */
-            margin: 0 auto; /* 居中 */
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .fallback-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <div class="container mx-auto px-4 py-8">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
-                The High Quality Rip Collection
-            </h1>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Immerse yourself in an epic gaming experience that redefines online entertainment.
-            </p>
-        </header>
-
-        <main class="max-w-4xl mx-auto">
-            <section class="bg-white shadow-md rounded-lg overflow-hidden">
-                <div class="w-full">
-                    <iframe 
-                        src="https://html-classic.itch.zone/html/6235029/index.html" 
-                        class="game-iframe"
-                        allowfullscreen
-                        frameborder="0"
-                    ></iframe>
-                </div>
-
-                <div class="p-6">
-                    <h2 class="text-2xl font-semibold text-blue-500 mb-4">
-                        Game Overview
-                    </h2>
-                    <p class="text-gray-700 mb-4">
-                        The High Quality Rip Collection is a cutting-edge browser game that combines stunning graphics, 
-                        immersive gameplay, and seamless performance. Designed to work perfectly on both desktop and mobile devices, 
-                        this game offers an unparalleled gaming experience for players of all levels.
-                    </p>
-                </div>
-            </section>
-        </main>
+<body>
+    <h1>The High Quality Rip Collection</h1>
+    
+    <div class="game-container">
+        <!-- 方案1：标准iframe -->
+        <iframe 
+            src="https://html-classic.itch.zone/html/6235029/index.html" 
+            allowfullscreen 
+            allow="autoplay; fullscreen"
+        ></iframe>
     </div>
+
+    <!-- 备用方案 -->
+    <div class="fallback-options">
+        <a href="https://html-classic.itch.zone/html/6235029/index.html" 
+           target="_blank" 
+           class="fallback-link">
+            直接打开游戏
+        </a>
+    </div>
+
+    <script>
+        // 检测iframe加载失败
+        window.addEventListener('load', function() {
+            const iframe = document.querySelector('iframe');
+            
+            // 如果iframe加载失败，显示备用链接
+            iframe.addEventListener('error', function() {
+                console.error('游戏加载失败');
+                document.querySelector('.fallback-options').style.display = 'block';
+            });
+
+            // 检测iframe是否可访问
+            try {
+                const iframeContent = iframe.contentWindow.document;
+                console.log('iframe可正常访问');
+            } catch(e) {
+                console.error('无法访问iframe内容:', e);
+                document.querySelector('.fallback-options').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
