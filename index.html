@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[GAME_TITLE] | The High Quality Rip Collection</title>
-    <meta name="description" content="Play [GAME_TITLE] online for free. [GAME_DESCRIPTION] Part of The High Quality Rip Collection at FreeGamesOnline.it.com.">
-    <link rel="canonical" href="https://freegamesonline.it.com/games/[GAME_SLUG]/" />
+    <title>The High Quality Rip Collection | Free Games Online</title>
+    <meta name="description" content="Play the best free online games in The High Quality Rip Collection. Action, adventure, strategy games and more available instantly in your browser.">
+    <link rel="canonical" href="https://freegamesonline.it.com/" />
     <style>
         /* Reset and Base Styles */
         * {
@@ -77,158 +77,124 @@
             cursor: pointer;
         }
         
-        /* Game Hero */
-        .game-hero {
+        /* Hero Section */
+        .hero {
             background: linear-gradient(to right, #000428, #004e92);
             color: white;
-            padding: 60px 20px;
             text-align: center;
+            padding: 80px 20px;
         }
         
-        .game-hero h1 {
-            font-size: 42px;
+        .hero h1 {
+            font-size: 48px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: -0.5px;
         }
         
-        .game-hero p {
-            font-size: 20px;
+        .hero p {
+            font-size: 24px;
             max-width: 700px;
-            margin: 0 auto 20px;
+            margin: 0 auto 30px;
         }
         
-        .game-hero-image {
+        .search-container {
             max-width: 600px;
             margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
         
-        .game-hero-image img {
+        .search-container input {
             width: 100%;
-            height: auto;
-            display: block;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
-        /* Game Container */
-        .game-container {
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        /* Categories */
+        .categories {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 60px auto;
             padding: 0 20px;
         }
         
-        .game-iframe-wrapper {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            overflow: hidden;
-            background: #000;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            margin-bottom: 40px;
-        }
-        
-        .game-iframe-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Game Info */
-        .game-info {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-        
-        .game-description {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .game-description h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .game-description p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #515154;
-        }
-        
-        .game-screenshots {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 25px 0;
-        }
-        
-        .game-screenshots img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .game-meta {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .game-meta h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .meta-item {
-            margin-bottom: 15px;
-        }
-        
-        .meta-label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
-            color: #1d1d1f;
-        }
-        
-        .meta-value {
-            color: #515154;
-        }
-        
-        .tag {
-            display: inline-block;
-            background: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 20px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        
-        /* Related Games */
-        .related-games {
-            margin-top: 60px;
-        }
-        
-        .related-games h2 {
-            font-size: 28px;
+        .categories h2 {
+            font-size: 32px;
             margin-bottom: 30px;
+            text-align: center;
             font-weight: 600;
         }
         
-        .related-grid {
+        .category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: calc(25% - 20px);
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .category-card h3 {
+            padding: 15px;
+            font-size: 18px;
+        }
+        
+        .category-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Games Collection */
+        .games-collection {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .games-collection h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
@@ -270,15 +236,16 @@
             padding: 20px;
         }
         
-        .game-content h3 {
-            font-size: 18px;
+        .game-content h2 {
+            font-size: 22px;
             margin-bottom: 10px;
+            text-align: left;
         }
         
         .game-content p {
             color: #515154;
             margin-bottom: 20px;
-            font-size: 14px;
+            font-size: 16px;
         }
         
         .play-btn {
@@ -301,7 +268,6 @@
             background: #1d1d1f;
             color: #f5f5f7;
             padding: 60px 20px;
-            margin-top: 60px;
         }
         
         .footer-container {
@@ -346,11 +312,11 @@
         
         /* Responsive Design */
         @media screen and (max-width: 768px) {
-            .game-hero h1 {
-                font-size: 32px;
+            .hero h1 {
+                font-size: 36px;
             }
             
-            .game-hero p {
+            .hero p {
                 font-size: 18px;
             }
             
@@ -362,25 +328,21 @@
                 display: block;
             }
             
-            .game-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .game-screenshots {
-                grid-template-columns: 1fr;
-            }
-            
-            .related-grid {
+            .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
         }
         
         @media screen and (max-width: 480px) {
-            .game-hero h1 {
-                font-size: 28px;
+            .hero h1 {
+                font-size: 30px;
             }
             
-            .related-grid {
+            .category-card {
+                width: calc(50% - 10px);
+            }
+            
+            .games-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -403,40 +365,147 @@
         </div>
     </header>
     
-    <section class="game-hero">
-        <h1>[GAME_TITLE]</h1>
-        <p>[GAME_TAGLINE]</p>
-        <div class="game-hero-image">
-            <img src="/images/games/[GAME_IMAGE]" alt="[GAME_TITLE] Gameplay">
+    <section class="hero">
+        <h1>Free Games Online Collection</h1>
+        <p>Play the best free online games from The High Quality Rip Collection</p>
+        <div class="search-container">
+            <input type="text" placeholder="Search for games...">
+            <button>Search</button>
         </div>
     </section>
     
-    <div class="game-container">
-        <div class="game-iframe-wrapper">
-            <iframe src="[GAME_IFRAME_URL]" allowfullscreen></iframe>
+    <section class="categories">
+        <h2>Game Categories</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <a href="/categories/action">
+                    <img src="/images/games/hqrip.png" alt="Action Games">
+                    <h3>Action</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/categories/adventure">
+                    <img src="/images/games/monsters survivors.png" alt="Adventure Games">
+                    <h3>Adventure</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/categories/strategy">
+                    <img src="/images/games/Unity WebGL Player.png" alt="Strategy Games">
+                    <h3>Strategy</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/categories/puzzle">
+                    <img src="/images/games/SURVIVOR Z.png" alt="Puzzle Games">
+                    <h3>Puzzle</h3>
+                </a>
+            </div>
         </div>
-        
-        <div class="game-info">
-            <div class="game-description">
-                <h2>About [GAME_TITLE]</h2>
-                <p>[GAME_DESCRIPTION_PARAGRAPH_1]</p>
-                
-                <div class="game-screenshots">
-                    <img src="/images/games/[SCREENSHOT_1]" alt="[GAME_TITLE] Screenshot 1">
-                    <img src="/images/games/[SCREENSHOT_2]" alt="[GAME_TITLE] Screenshot 2">
+    </section>
+    
+    <section class="games-collection">
+        <h2>The High Quality Rip Collection</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-thumb">
+                    <img src="/images/games/monsters survivors.png" alt="Monster Survivors">
                 </div>
-                
-                <p>[GAME_DESCRIPTION_PARAGRAPH_2]</p>
-                <h2>How to Play</h2>
-                <p>[GAME_INSTRUCTIONS]</p>
+                <div class="game-content">
+                    <h2>Monster Survivors</h2>
+                    <p>An exciting survival game where you battle endless waves of monsters in a pixel art world.</p>
+                    <a href="/games/monster-survivors" class="play-btn">Play Now</a>
+                </div>
             </div>
             
-            <div class="game-meta">
-                <h2>Game Details</h2>
-                <div class="meta-item">
-                    <span class="meta-label">Category</span>
-                    <span class="meta-value">[GAME_CATEGORY]</span>
+            <div class="game-card">
+                <div class="game-thumb">
+                    <img src="/images/games/hqrip.png" alt="High Quality Rip">
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Style</span>
-                    <span class="meta-value">[
+                <div class="game-content">
+                    <h2>High Quality Rip</h2>
+                    <p>Explore mysterious dungeons, defeat enemies and collect treasures in this retro-style adventure.</p>
+                    <a href="/games/high-quality-rip" class="play-btn">Play Now</a>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-thumb">
+                    <img src="/images/games/SURVIVOR Z.png" alt="Survivors Z">
+                </div>
+                <div class="game-content">
+                    <h2>Survivors Z</h2>
+                    <p>Test your survival skills in this challenging web-based game with unique mechanics.</p>
+                    <a href="/games/survivors-z" class="play-btn">Play Now</a>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-thumb">
+                    <img src="/images/games/Unity WebGL Player.png" alt="Unity WebGL Adventure">
+                </div>
+                <div class="game-content">
+                    <h2>Unity WebGL Adventure</h2>
+                    <p>Embark on an epic adventure filled with puzzles, challenges and exciting gameplay.</p>
+                    <a href="/games/unity-webgl-adventure" class="play-btn">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>FreeGamesOnline</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="/categories/action">Action Games</a></li>
+                    <li><a href="/categories/adventure">Adventure Games</a></li>
+                    <li><a href="/categories/strategy">Strategy Games</a></li>
+                    <li><a href="/categories/puzzle">Puzzle Games</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Popular Games</h3>
+                <ul>
+                    <li><a href="/games/monster-survivors">Monster Survivors</a></li>
+                    <li><a href="/games/high-quality-rip">High Quality Rip</a></li>
+                    <li><a href="/games/survivors-z">Survivors Z</a></li>
+                    <li><a href="/games/unity-webgl-adventure">Unity WebGL Adventure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 FreeGamesOnline.it.com. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '60px';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.backgroundColor = 'white';
+                nav.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+                nav.style.padding = '20px';
+            }
+        });
+    </script>
+</body>
+</html>
